@@ -1,0 +1,29 @@
+.tableHeader {
+  position: fixed; 
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin: 15px; 
+  font-weight: 600; 
+  width: -webkit-fill-available; 
+  top: 59px;
+  z-index: 10;
+}
+
+.tableRow {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin: 15px
+}
+
+.noDataDisplay {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  margin-top: 135px
+}

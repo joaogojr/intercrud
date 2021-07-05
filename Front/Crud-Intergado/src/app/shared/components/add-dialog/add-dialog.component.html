@@ -1,0 +1,23 @@
+<div>
+    <div class="header">
+        <button mat-icon-button [disabled]="onLoading" mat-dialog-close=true aria-label="Back">
+            <mat-icon color="primary">arrow_back</mat-icon>
+        </button>
+        <span style="font-size: 25px; vertical-align: middle;">Adicionar Animal</span>
+        <mat-spinner *ngIf="onLoading" diameter="30" style="float: right;"></mat-spinner>
+    </div>
+    <mat-divider style="margin: 8px 0 10px 0"></mat-divider>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <mat-form-field appearance="outline" style="width: 48%;">
+            <mat-label>Manejo</mat-label>
+            <input matInput type="text" maxlength="20" formControlName="handling" required>
+            <mat-error *ngIf="control('handling')?.errors?.required">Manejo obrigatório</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 48%;">
+            <mat-label>Tag</mat-label>
+            <input matInput type="text" maxlength="20" formControlName="tag" required>
+            <mat-error *ngIf="control('tag')?.errors?.required">Tag obrigatória</mat-error>
+        </mat-form-field>
+        <button mat-raised-button type="submit" [disabled]="addForm.invalid || onLoading" color="primary" style="margin-left: auto;" aria-label="Add">Salvar</button>
+    </form>
+</div>

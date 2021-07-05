@@ -1,0 +1,36 @@
+<div>
+	<mat-toolbar color="primary" style="position: fixed; z-index: 10; top: 0">
+		<img src="../../../../assets/images/svg/zoology-white.svg" style="width: 40px; margin-right: 10px;">
+		<span>Controle de Animais</span>
+		<div style="margin-left: auto;">
+			<button mat-icon-button class="example-icon" (click)="openInfoDialog()" aria-label="Info">
+				<mat-icon>info</mat-icon>
+			</button>
+			<button mat-icon-button class="example-icon" (click)="openAddDialog()" aria-label="Add">
+				<mat-icon>add</mat-icon>
+			</button>
+		</div>
+	</mat-toolbar>
+	<mat-card class="tableHeader">
+		<span>ID</span>
+		<span>Manejo</span>
+		<span>Tag</span>
+		<span>Excluir</span>
+	</mat-card>
+	<div style="margin-top: 135px" [hidden]="emptyTable">
+		<mat-card *ngFor="let animal of animalList" class="tableRow">
+			<span>{{animal.id}}</span>
+			<span>{{animal.manejo}}</span>
+			<span>{{animal.tag}}</span>
+			<button mat-icon-button class="example-icon" (click)="deleteAnimal(animal.id)" aria-label="Add">
+				<mat-icon color="warn">delete_outline</mat-icon>
+			</button>
+		</mat-card>
+	</div>
+	<div [hidden]="!emptyTable">
+		<div class="noDataDisplay">
+			<img src="../../../../assets/images/png/x.png" style="width: 300px">
+			<Span style="font-size: 50px">Sem dados</Span>
+		</div>
+	</div>
+</div>
